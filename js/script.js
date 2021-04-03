@@ -21,7 +21,7 @@ function getMovies(searchText){
                     <div class="well text-center">
                         <img src=${movie.Poster}>
                         <h5 id="movie-Title">${movie.Title}</h5>
-                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary more-info" heref="movie.html" target="_blank">More info</a>
+                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary more-info" heref="../html/movie.html" target="_blank">More info</a>
                    </div>
                  </div>
                 `;
@@ -83,7 +83,7 @@ function getMovie () {
                <hr>
             <div class="last-links">
                <a style="width: 10rem; margin: 0 0 20px 40px" href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-               <a style="width: 15rem;" href="index.html" class="btn btn-primary">Go Back To Search</a>
+               <a style="width: 15rem;" href="../html/index.html" class="btn btn-primary">Go Back To Search</a>
             </div>
              </div>
            </div>
