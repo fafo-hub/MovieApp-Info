@@ -1,0 +1,140 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.header {
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+}
+
+
+header h2 h3 {
+    color: white;
+}
+
+
+.header h2 {
+    color: orangered;
+    font-style: italic;
+}
+
+
+.search-btn {
+    background: orangered!important;
+    border-color: orangered!important;
+}
+
+
+#searchForm {
+    display: grid;
+    justify-content: center;
+}
+
+
+.jumbo-p-1 {
+    font-size: 2.5rem;
+}
+
+
+#searchText {
+    width: 40rem;
+    height: 3rem;
+    font-size: 20px;
+}
+
+
+#movies , .more-info {
+    position: relative;
+    top: 20px;
+}
+
+
+#movies h1, h2, h3 {
+    margin-top: 2.0rem;
+}
+
+
+.container {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+
+ul .list-group-item {
+    color: black!important;
+}
+
+
+.last-links {
+    display: grid;
+    justify-content: center;
+}
+
+
+.more-info {
+    margin-bottom: 6rem;
+}
+
+
+#movies .well {
+    height: 350px;
+    margin-bottom: 90px;
+}
+
+
+#movies img, #movie img {
+    width: 80%;
+    height: 80%;
+}
+
+
+#movies .contain {
+    background: rgba(20, 18, 18, 0.5);
+    width: 315px!important;
+    margin-right: 15px;
+    margin-bottom: 40px;
+    padding-top: 25px;
+    border-radius: 10px;
+    border: 1px solid antiquewhite;
+}
+
+
+
+@media screen and (max-width:900px) {
+    #searchText {
+        width: 21rem;
+    }
+
+    .jumbo-p-1 {
+        font-size: 20px!important;
+        font-weight: unset!important;
+    }
+
+    #movies .contain {
+        width: 225px!important;
+        margin: 0 0 40px 30px;
+    }
+
+}
+
+
+@media screen and (max-width:900px) {
+    #movies .contain {
+        width: 150px!important;
+        height: 400px!important;
+        margin: 0 0 40px 27px;
+    }
+
+    #movies .contain img {
+        height: 200px;
+    }
+    
+    #movies .contain #movie-Title {
+        font-size: 1rem;
+    }
+}
