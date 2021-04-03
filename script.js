@@ -8,7 +8,7 @@ $(document).ready(function(){
 })
 
 function getMovies(searchText){
-        fetch(`http://www.omdbapi.com/?s=${searchText}&apikey=5984d0c2`).
+        fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
             //console.log(data);
@@ -49,7 +49,7 @@ function movieSelected(id) {
 function getMovie () {
     let movieId = sessionStorage.getItem('movieId');
     console.log(movieId);
-    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
+    fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
           
