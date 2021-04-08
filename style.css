@@ -13,6 +13,14 @@ body {
     margin-left: 2.5rem;
 }
 
+.gif {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 219px;
+    top: 20px
+}
+
 
 header h2 h3 {
     color: white;
@@ -22,6 +30,11 @@ header h2 h3 {
 .header h2 {
     color: orangered;
     font-style: italic;
+}
+
+
+audio {
+    visibility: hidden;
 }
 
 
@@ -65,6 +78,11 @@ header h2 h3 {
 }
 
 
+.movie {
+    margin-top: 7rem;
+}
+
+
 ul .list-group-item {
     color: black!important;
 }
@@ -105,7 +123,7 @@ ul .list-group-item {
 
 
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:780px) {
     #searchText {
         width: 21rem;
     }
@@ -120,6 +138,19 @@ ul .list-group-item {
         margin: 0 0 40px 30px;
     }
 
+    .bg-ticket {
+        width: 15rem!important;
+        margin-left: 0!important;
+    }
+
+    .col-md-8 h2 {
+        text-align: inherit;
+    }
+
+    .git {
+        left: inherit;
+    }
+
 }
 
 
@@ -128,6 +159,20 @@ ul .list-group-item {
         width: 150px!important;
         height: 400px!important;
         margin: 0 0 40px 27px;
+    }
+
+    .gif {
+        position: absolute;
+        left: 12rem;
+    }
+
+    .bg-ticket {
+        width: 15rem!important;
+        margin-left: 0!important;
+    }
+
+    .col-md-8 h2 {
+        text-align: inherit;
     }
 
     #movies .contain img {

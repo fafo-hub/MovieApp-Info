@@ -1,19 +1,36 @@
-
 $(document).ready(function(){
     $('#searchForm').on('submit', (e) => {
         let searchText = $('#searchText').val();
         getMovies(searchText);
         e.preventDefault();
+        if (searchText === 'Game of Thrones') {
+            console.log('o porr')
+            let audio = document.querySelector('.movies-container')
+            console.log(audio);
+            audio.insertAdjacentHTML('afterend', 
+                `<audio autoplay loop>
+                    <source src="Game of Thrones.mp3" type="audio/ogg">
+                    <source src="Game of Thrones.mp3" type="audio/mpeg">
+                 </audio>
+                 `
+                 )
+            document.body.style.background = 'url("wallpaperflare.com_wallpaper.jpg")'; 
+          }
+        else{
+            return false;
+        }
     })
 })
 
+
 function getMovies(searchText){
-        fetch(`https://www.omdbapi.com/?s=${searchText}&apikey=5984d0c2`).
+        localStorage.setItem('saved', searchText)
+        let get = localStorage.getItem('saved')
+        console.log(get);
+        fetch(`http://www.omdbapi.com/?s=${get}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
-            //console.log(data);
             let movieInfo = data.Search;
-            //console.log(movieInfo);
             let output = '';
             $.each(movieInfo, (index, movie) => {
                 output += `
@@ -21,17 +38,13 @@ function getMovies(searchText){
                     <div class="well text-center">
                         <img src=${movie.Poster}>
                         <h5 id="movie-Title">${movie.Title}</h5>
-                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary more-info" heref="html/movie.html" target="_blank">More info</a>
+                        <a onclick="movieSelected('${movie.imdbID}')" class="btn btn-primary more-info" heref="movie.html" target="_blank">More info</a>
                    </div>
                  </div>
-                `;
-                
+                `; 
             })
-           
+            
             $('#movies').html(output);
-            console.log($('#movies'));
-            let moving = document.getElementById('movie-Title')
-            console.log(moving);
         })
     
 
@@ -48,13 +61,12 @@ function movieSelected(id) {
 
 function getMovie () {
     let movieId = sessionStorage.getItem('movieId');
-    console.log(movieId);
-    fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
+    //console.log(movieId);
+    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
-          
-          let movie = data;
-          console.log(movie);
+            let movie = data;
+          //console.log(movie);
           let output = 
           `
           <div class="row">
@@ -83,7 +95,8 @@ function getMovie () {
                <hr>
             <div class="last-links">
                <a style="width: 10rem; margin: 0 0 20px 40px" href="http://imdb.com/title/${movie.imdbID}" target="_blank" class="btn btn-primary">View IMDB</a>
-               <a style="width: 15rem;" href="index.html" class="btn btn-primary">Go Back To Search</a>
+               <a style="width: 15rem; margin: 0 0 20px 0" href="index.html" class="btn btn-primary">Go Back To Search</a>
+               <a style="width: 20rem; margin-left: -40px" href="https://paystack.com/pay/movieapp-info-ticket" class="btn btn-primary bg-ticket">Purchase Ticket</a>
             </div>
              </div>
            </div>
@@ -91,28 +104,7 @@ function getMovie () {
           `;
 
           $('#movie').html(output)
-      seen()    
         })
         
 }
 
-$(".buy-ticket").on('click', (e) =>{
-    alert('seen');
-})
-
-$('.buy-ticket').on('click', (e)=> {
-    console.log('okay');
-    getMovie();
-})
-function seen() {
-    $('.buy-ticket').on('click', (e)=> {
-        console.log('okay');
-        getMovie();
-        fetch(`http://www.api.paystack.co.transaction`).
-        then(response => response.json()).
-        then(data => {
-            console.log(data);
-        })
-        
-    })
-}
