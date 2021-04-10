@@ -27,7 +27,7 @@ $(document).ready(function(){
         localStorage.setItem('saved', searchText)        
         let get = localStorage.getItem('saved')
         console.log(get);
-        fetch(`http://www.omdbapi.com/?s=${get}&apikey=5984d0c2`).
+        fetch(`https://www.omdbapi.com/?s=${get}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
             let movieInfo = data.Search;
@@ -62,7 +62,7 @@ function movieSelected(id) {
 
 function getMovie () {
     let movieId = sessionStorage.getItem('movieId');
-    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
+    fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
             let movie = data;
