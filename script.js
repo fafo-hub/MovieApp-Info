@@ -1,9 +1,11 @@
 $(document).ready(function(){
     $('#searchForm').on('submit', (e) => {
         let searchText = $('#searchText').val();
-        getMovies(searchText);
+        //localStorage.setItem('saved', searchText)
+        main(searchText)
+        getMovies();
         e.preventDefault();
-        if (searchText === 'Game of Thrones') {
+        if (searchText === 'Game of Thrones' || 'Games of Thrones' ) {
             console.log('o porr')
             let audio = document.querySelector('.movies-container')
             console.log(audio);
@@ -22,12 +24,18 @@ $(document).ready(function(){
     })
 })
 
+function main(searchText){
+    localStorage.setItem('saved', searchText)
+    //window.location = 'index.html';
+    //return True;
+}
 
-function getMovies(searchText){
-        localStorage.setItem('saved', searchText)
+
+ function getMovies(){
+        
         let get = localStorage.getItem('saved')
         console.log(get);
-        fetch(`https://www.omdbapi.com/?s=${get}&apikey=5984d0c2`).
+        fetch(`http://www.omdbapi.com/?s=${get}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
             let movieInfo = data.Search;
@@ -53,6 +61,8 @@ function getMovies(searchText){
     })
 }
 
+//setTimeout(getMovies(searchText), 5000)
+
 function movieSelected(id) {
     sessionStorage.setItem('movieId', id);
     window.location = 'movie.html';
@@ -62,7 +72,7 @@ function movieSelected(id) {
 function getMovie () {
     let movieId = sessionStorage.getItem('movieId');
     //console.log(movieId);
-    fetch(`https://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
+    fetch(`http://www.omdbapi.com/?i=${movieId}&apikey=5984d0c2`).
         then(response => response.json()).
         then(data => {
             let movie = data;
