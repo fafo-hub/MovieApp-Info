@@ -122,37 +122,6 @@ ul .list-group-item {
 }
 
 
-@media screen and (max-width:900px) {
-    #movies .contain {
-        width: 150px!important;
-        height: 370px!important;
-        margin: 0 0 40px 27px;
-    }
-
-    .gif {
-        position: absolute;
-        left: 15rem;
-        width: 100px;
-        height: 100px;
-    }
-
-    .bg-ticket {
-        width: 15rem!important;
-        margin-left: 0!important;
-    }
-
-    .col-md-8 h2 {
-        text-align: inherit;
-    }
-
-    #movies .contain img {
-        height: 200px;
-    }
-    
-    #movies .contain #movie-Title {
-        font-size: 1rem;
-    }
-}
 
 
 @media screen and (max-width:780px) {
@@ -191,4 +160,35 @@ ul .list-group-item {
 
 
 
+@media screen and (max-width:900px) {
+    #movies .contain {
+        width: 150px!important;
+        height: 370px!important;
+        margin: 0 0 40px 27px;
+    }
+
+    .gif {
+        position: absolute;
+        left: 15rem;
+        width: 100px;
+        height: 100px;
+    }
+
+    .bg-ticket {
+        width: 15rem!important;
+        margin-left: 0!important;
+    }
+
+    .col-md-8 h2 {
+        text-align: inherit;
+    }
+
+    #movies .contain img {
+        height: 200px;
+    }
+    
+    #movies .contain #movie-Title {
+        font-size: 1rem;
+    }
+}
 
